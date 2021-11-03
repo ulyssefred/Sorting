@@ -1,13 +1,17 @@
 #include "Sorting.h"
+
+
 typedef struct node
 {
     int value;
     int index;
-}currentmap;
+}valueindexmap;
+
 
 int Paritition(vector<int>& A, int low, int high)
 {
-    int pivot = A[low];
+    int pivot = A[low];/*Record current sort value*/
+    //Adjust pivot order
     while (low < high) {
         while (low < high && A[high] >= pivot) {
             --high;
@@ -19,11 +23,14 @@ int Paritition(vector<int>& A, int low, int high)
         A[high] = A[low];
     }
     A[low] = pivot;
-    return low;
+    return low;/*return pivot position*/
 }
-int Paritition(vector<currentmap>& A, int low, int high)
+
+
+int Paritition(vector<valueindexmap>& A, int low, int high)
 {
-    currentmap pivot = A[low];
+    valueindexmap pivot = A[low];/*Record current sort struct pivot*/
+    //Adjust pivot order
     while (low < high) {
         while (low < high && A[high].value >= pivot.value) {
             --high;
@@ -35,60 +42,67 @@ int Paritition(vector<currentmap>& A, int low, int high)
         A[high] = A[low];
     }
     A[low] = pivot;
-    return low;
+    return low;/*return pivot position*/
 }
 
 void QuickSort(vector<int>& A, int low, int high)
 {
     if (low < high) {
         int pivot = Paritition(A, low, high);
+        /*Recursive sorting*/
         QuickSort(A, low, pivot - 1);
+        /*Recursive sorting*/
         QuickSort(A, pivot + 1, high);
     }
 }
-void QuickSort(vector<currentmap>& A, int low, int high)
+void QuickSort(vector<valueindexmap>& A, int low, int high)
 {
     if (low < high) {
         int pivot = Paritition(A, low, high);
+        /*Recursive sorting*/
         QuickSort(A, low, pivot - 1);
+        /*Recursive sorting*/
         QuickSort(A, pivot + 1, high);
     }
 }
 
 void QuickSort(vector<int>& A)
 {
-    int low = 0;
-    int high = A.size()-1;
-    QuickSort(A, low, high);
+
+    int low = 0;/*record initial low boundary value*/
+    int high = A.size()-1;/*record initial high boundary value*/
+    QuickSort(A, low, high);/*call QuickSort implementation function*/
 }
 
 
 void QuickSort(vector<int>& A, vector<int>& Auxilary)
 {
-    int low = 0;
-    int high = A.size() - 1;
-    vector<currentmap> maparry;
+    int low = 0;/*record initial low boundary value*/
+    int high = A.size() - 1;/*record initial high boundary value*/
+    vector<valueindexmap> maparray;/*declare valueindexmap vector mparray*/
+    /*initial mparray*/
     for (int i = 0; i < A.size(); i++)
     {
-        currentmap element;
+        valueindexmap element;
         element.value = A[i];
         element.index = i;
-        maparry.push_back(element);
+        maparray.push_back(element);
 
     }
-    QuickSort(maparry, low, high);
+    QuickSort(maparray, low, high);
+    /*assign value to auxiliary array*/
     for (int x = 0; x < A.size(); x++)
     {
-        Auxilary[x] = maparry[x].index;
+        Auxilary[x] = maparray[x].index;
     }
     
 }
 
 void BubbleSort(vector<int>& A)
 {
-    for (int i = 1; i < A.size(); i++) 
+    for (int i = 1; i < A.size(); i++) /*loop number*/
     {
-        for(int j = 0; j<A.size()-i;j++)
+        for(int j = 0; j<A.size()-i;j++)/*swap adjacent object order*/
         {
             if(A[j]>A[j+1])
             {
@@ -102,29 +116,31 @@ void BubbleSort(vector<int>& A)
 
 void BubbleSort(vector<int>& A, vector<int>& Auxilary)
 {
-    vector<currentmap> maparry;
+    vector<valueindexmap> maparray;/*declare valueindexmap vector mparray*/
+    /*initial mparray*/
     for(int i = 0; i<A.size(); i++)
     {   
-        currentmap element;
+        valueindexmap element;
         element.value = A[i];
         element.index = i;
-        maparry.push_back(element);
+        maparray.push_back(element);
         
     }
-    for (int j = 1; j < A.size(); j++) 
+    for (int j = 1; j < A.size(); j++) /*loop number*/
     {
-        for (int k = 0; k < A.size() - j; k++)
+        for (int k = 0; k < A.size() - j; k++)/*swap adjacent object order*/
         {
-            if (maparry[k].value > maparry[k+1].value)
+            if (maparray[k].value > maparray[k+1].value)
             {
-                currentmap temp = maparry[k];
-                maparry[k] = maparry[k + 1];
-                maparry[k + 1] = temp;  
+                valueindexmap temp = maparray[k];
+                maparray[k] = maparray[k + 1];
+                maparray[k + 1] = temp;  
             }
         }
     }
+    /*assign value to auxiliary array*/
     for (int x = 0; x < A.size(); x++) 
     {
-        Auxilary[x] = maparry[x].index;
+        Auxilary[x] = maparray[x].index;
     }
 }
