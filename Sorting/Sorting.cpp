@@ -93,6 +93,7 @@ void QuickSort(vector<int>& A, vector<int>& Auxilary)
     /*assign value to auxiliary array*/
     for (int x = 0; x < A.size(); x++)
     {
+        A[x] = maparray[x].value;
         Auxilary[x] = maparray[x].index;
     }
     
@@ -141,6 +142,7 @@ void BubbleSort(vector<int>& A, vector<int>& Auxilary)
     /*assign value to auxiliary array*/
     for (int x = 0; x < A.size(); x++) 
     {
+        A[x] = maparray[x].value;
         Auxilary[x] = maparray[x].index;
     }
 }

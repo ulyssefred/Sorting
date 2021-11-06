@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FunctionalityTest.h" />
     <ClInclude Include="Sorting.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FunctionalityTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sorting.cpp" />
   </ItemGroup>
