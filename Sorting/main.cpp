@@ -9,13 +9,32 @@ int main()
     {
         FunctionalityTest test;
         int test_case_array_size;
-        cout << "input test cast array size" << endl;
-        cin >> test_case_array_size;
-        test.Bubble_sort_function_test_without_auxiliary_array(test_case_array_size);
-        test.Bubble_sort_function_test_with_auxiliary_array(test_case_array_size);
-        test.Quicksort_function_test_without_auxiliary_array(test_case_array_size);
-        test.Quicksort_function_test_with_auxiliary_array(test_case_array_size);
+        int test_number;
+        cout << "input test functionality number" << endl;
+        cin >> test_number;
+        switch (test_number)
+        {
+        case 1:
+            cout << "input test cast array size" << endl;
+            cin >> test_case_array_size;
+            test.Bubble_sort_function_test_without_auxiliary_array(test_case_array_size);
+            break;
+        case 2:
+            cout << "input test cast array size" << endl;
+            cin >> test_case_array_size;
+            test.Bubble_sort_function_test_with_auxiliary_array(test_case_array_size);
+            break;
+        case 3:
+            cout << "input test cast array size" << endl;
+            cin >> test_case_array_size;
+            test.Quicksort_function_test_without_auxiliary_array(test_case_array_size);
+            break;
+        case 4:
+            cout << "input test cast array size" << endl;
+            cin >> test_case_array_size;
+            test.Quicksort_function_test_with_auxiliary_array(test_case_array_size);
+        default:
+            break;
+        }
     }
-    
-
 }
