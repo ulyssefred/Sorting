@@ -77,6 +77,10 @@ void QuickSort(vector<int>& A)
 
 void QuickSort(vector<int>& A, vector<int>& Auxilary)
 {
+    if (A.size() != Auxilary.size()) {
+        cout << "error Auxilary array size" << endl;
+        return;
+    }
     int low = 0;/*record initial low boundary value*/
     int high = A.size() - 1;/*record initial high boundary value*/
     vector<valueindexmap> maparray;/*declare valueindexmap vector mparray*/
@@ -117,6 +121,10 @@ void BubbleSort(vector<int>& A)
 
 void BubbleSort(vector<int>& A, vector<int>& Auxilary)
 {
+    if (A.size() != Auxilary.size()) {
+        cout << "error Auxilary array size" << endl;
+        return;
+    }
     vector<valueindexmap> maparray;/*declare valueindexmap vector mparray*/
     /*initial mparray*/
     for(int i = 0; i<A.size(); i++)

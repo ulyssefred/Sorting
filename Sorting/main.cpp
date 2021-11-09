@@ -37,4 +37,27 @@ int main()
             break;
         }
     }
+    ///*error conditions*/
+   /* vector<int> error_test_array = { 1, 2, 4, 3, 5 };
+    vector<float> error_test_array1 = { 1., 3., 4., 5. };
+    vector<char> error_test_array2 = { 'a', 'b', 'c', 'd' };
+    vector<int> error_test_auxiliary = { 0, 0, 0, 0, 0 };
+    vector<int> error_test_auxiliary1 = { 0, 0, 0, 0, 0, 0, 0 };*/
+    ///*error input array type(not vector<int>)*/
+    //BubbleSort(error_test_array1);
+    //BubbleSort(error_test_array2, error_test_auxiliary);
+    //QuickSort(error_test_array1);
+    //QuickSort(error_test_array2, error_test_auxiliary);
+    ///*error input argument number */
+    //BubbleSort();
+    //BubbleSort(error_test_array1, error_test_array2, error_test_auxiliary);
+    //QuickSort();
+    //QuickSort(error_test_array1, error_test_array2, error_test_auxiliary);
+    ///*error auxiliary array size*/
+    /*BubbleSort(error_test_array, error_test_auxiliary1);*/
+    //QuickSort(error_test_array, error_test_auxiliary1);
+
+
+    
+    
 }
